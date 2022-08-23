@@ -43,6 +43,21 @@ function Login() {
     setData({ ...data, [name]: value });
   };
 
+  const adminLogin = async(e)=>{
+    e.preventDefault()
+    try {
+      const res = await axios.post('/users/login', {loginID: 'admin', password: 'superadmin'})   
+      console.log(res, 'from here')
+      dispatch(dispatchLogin());
+      dispatch(dispatchUser(res.data.user));
+      notify("success", "Login Successful");
+      history.push("/dashboard");
+    } catch (error) {
+      console.log(error, 'from here')
+      notify("error", "Login Failed");
+    }
+  }
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -114,6 +129,9 @@ function Login() {
             <div className="login-div btn-group">
               <button disabled={!emailMatch(loginID)} className="login-button">
                 Login
+              </button>
+              <button onClick={adminLogin} className="login-button">
+                Guest Admin
               </button>
             </div>
             <Link className='login-forgot' to='/forgotPassword'>Forgot Password? Click Here</Link>
