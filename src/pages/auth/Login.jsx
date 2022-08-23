@@ -23,11 +23,13 @@ const InputSpan = styled.span`
   transition: 1s all ease;
 `;
 
+const REACT_APP_CLIENT_URL = process.env
+
 function Login() {
   const history = useHistory();
   const dispatch = useDispatch();
   const notify = useNotify()
-  const PF = 'http://localhost:3000'
+  const PF = REACT_APP_CLIENT_URL
 
   const initialState = {
     loginID: "",

@@ -55,7 +55,8 @@ import Notifications from "./components/notifications";
 function App() {
   const dispatch = useDispatch();
   const [fetching, setFetching] = useState(true);
-  const PF = "http://localhost:3000";
+  const REACT_APP_CLIENT_URL = process.env;
+  const PF = REACT_APP_CLIENT_URL;
 
   useEffect(() => {
     window.scrollTo({

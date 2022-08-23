@@ -12,18 +12,18 @@ const REACT_APP_CLIENT_URL = process.env
 
 function Homepage() {
 
-   const PF = REACT_APP_CLIENT_URL + '/images'
+   const PF = REACT_APP_CLIENT_URL
 
     return (
         <div className='homepage'>
           <Header />
           {/* <div className="divide-header"></div> */}
           <AliceCarousel autoPlay autoPlayInterval='3000' infinite fadeOutAnimation={true}>
-            <img className='sliderimg' src={PF + '/school1.jpg'} alt="" />
-            <img className='sliderimg' src={PF + '/library.jpg'} alt="De solution" />
-            <img className='sliderimg' src={PF + '/vocational.jpg'} alt="" />
-            <img className='sliderimg' src={PF + '/computer.jpg'} alt="" />
-            <img className='sliderimg' src={PF + '/dancing.jpg'} alt="" />
+            <img className='sliderimg' src={PF + '/images/school1.jpg'} alt="" />
+            <img className='sliderimg' src={PF + '/images/library.jpg'} alt="De solution" />
+            <img className='sliderimg' src={PF + '/images/vocational.jpg'} alt="" />
+            <img className='sliderimg' src={PF + '/images/computer.jpg'} alt="" />
+            <img className='sliderimg' src={PF + '/images/dancing.jpg'} alt="" />
             {/* <img className='sliderimg' src={PF + '/gilbert.jpg'} alt="" />
             <img className='sliderimg' src={PF + '/onyedika.jpg'} alt="" />
             <img className='sliderimg' src={PF + '/ifeoma.jpg'} alt="" /> */}

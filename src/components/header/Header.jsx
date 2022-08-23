@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { dispatchLogout } from "../../redux/actions/authAction";
 import "./header.css";
+const REACT_APP_CLIENT_URL = process.env
 
 function Header() {
   const { isLogged } = useSelector((state) => state.auth);
@@ -13,7 +14,7 @@ function Header() {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const PF = 'http://localhost:3000'
+  const PF = REACT_APP_CLIENT_URL
 
   const handleMenu = () => {
     setToggle((state) => !state);
