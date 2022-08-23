@@ -6,13 +6,13 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from 'react-router-dom'
 
 
+const REACT_APP_CLIENT_URL = process.env
 
 
 
 function Homepage() {
-    const PF = 'http://localhost:3000/images'
 
-
+   const PF = REACT_APP_CLIENT_URL + '/images'
 
     return (
         <div className='homepage'>
