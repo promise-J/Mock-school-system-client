@@ -167,7 +167,7 @@ function ViewResult() {
           <option value={DEFAULT_YEAR}>Default Session</option>
           {
             sessions.map(session => (
-              <option value={session?.year}>{session?.year + "/" + Number(session?.year + 1)}</option>
+              <option key={session._id} value={session?.year}>{session?.year + "/" + Number(session?.year + 1)}</option>
             ))
           }
         </select>
