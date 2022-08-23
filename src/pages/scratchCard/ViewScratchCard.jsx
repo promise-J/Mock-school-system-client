@@ -74,7 +74,7 @@ const ViewScratchCard = () => {
                      <Clear style={{color: 'red', fontWeight: 600, transition: 'all 1s ease-in-out', animation: 'scalar 2s infinite'}} />: 
                     <Check style={{color: 'green', fontWeight: 600}} />}</td>
                     <td>{s?.result?.student?.loginID}</td>
-                    <td><DeleteOutline style={{color: 'red', fontSize: 15}} onClick={()=> deleteCard(s.id)} /></td>
+                    <td><DeleteOutline className='del-btn' onClick={()=> deleteCard(s.id)} /></td>
                 </tr>
                 ))
             }

@@ -150,7 +150,9 @@ footer .footer3-inputDiv button{
     background-size: cover;
     position: relative;
     transition: 1s all ease-in-out;
-    background-image: linear-gradient(45deg, rgb(243, 233, 235), rgb(245, 227, 227));
+    border: rgb(235, 236, 238) 1px solid;
+    box-shadow: 2px 2px 2px 2px rgb(235, 236, 238);
+    /* background-image: linear-gradient(45deg, rgb(243, 233, 235), rgb(245, 227, 227)); */
 }
 /* .single-image-voice:nth-child(1){
     background-image: url('../../images/school1.jpg');

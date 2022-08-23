@@ -80,7 +80,7 @@ function ViewSubject() {
                   <td>
                     <Link to={`/createSubject/${subject._id}`}>
                       <button>
-                        <EditOutlined style={{ fontSize: 15 }} />
+                        <EditOutlined className='edit-btn' />
                       </button>
                     </Link>
                   </td>
@@ -89,7 +89,7 @@ function ViewSubject() {
                       disabled={role !== "superuser"}
                       onClick={() => deleteItem(subject._id)}
                     >
-                      <DeleteOutlined style={{ fontSize: 15 }} />
+                      <DeleteOutlined className='del-btn' />
                     </button>
                   </td>
                 </tr>

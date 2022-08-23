@@ -52,6 +52,7 @@ function Login() {
       notify('success', 'Login Successful')
       history.push("/dashboard");
     } catch (error) {
+      console.log(error)
       notify('error', 'Login Failed')
     }
   };
@@ -115,7 +116,7 @@ function Login() {
                 Login
               </button>
             </div>
-            <Link class='login-forgot' to='/forgotPassword'>Forgot Password? Click Here</Link>
+            <Link className='login-forgot' to='/forgotPassword'>Forgot Password? Click Here</Link>
           </form>
         </div>
       </div>

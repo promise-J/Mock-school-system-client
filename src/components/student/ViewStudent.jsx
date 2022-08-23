@@ -90,13 +90,13 @@ function ViewStudent() {
                       <td>
                         <Link to={`/createUser/${s?._id}`}>
                           <button>
-                            <EditOutlined style={{ fontSize: 15 }} />
+                            <EditOutlined className='edit-btn' />
                           </button>
                         </Link>
                       </td>
                       <td>
                         <button onClick={() => deleteItem(s._id)}>
-                          <DeleteOutlined style={{ fontSize: 15 }} />
+                          <DeleteOutlined className="del-btn" />
                         </button>
                       </td>
                     </tr>

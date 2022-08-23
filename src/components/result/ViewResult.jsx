@@ -221,13 +221,13 @@ function ViewResult() {
                     <td>
                       <Link to={`/viewResult/${result?._id}`}>
                         <button>
-                          <EditOutlined style={{ fontSize: 15 }} />
+                          <EditOutlined className="edit-btn" />
                         </button>
                       </Link>
                     </td>
                     <td>
                       <button onClick={() => deleteItem(result?._id)}>
-                        <DeleteOutlined style={{ fontSize: 15 }} />
+                        <DeleteOutlined className="del-btn" />
                       </button>
                     </td>
                   </tr>

@@ -91,7 +91,7 @@ function ViewClass() {
                           to={`/editClass/${c._id}`}
                         >
                           <button>
-                            <EditOutlined />
+                            <EditOutlined className='edit-btn' />
                           </button>
                         </Link>
                       </td>
@@ -100,7 +100,7 @@ function ViewClass() {
                           disabled={role !== "superuser"}
                           onClick={() => deleteItem(c._id)}
                         >
-                          <DeleteOutlined />
+                          <DeleteOutlined className="del-btn" />
                         </button>
                       </td>
                     </>

@@ -40,6 +40,31 @@ button {
   cursor: pointer;
   border: none;
 }
+
+.del-btn{
+  padding: 4px;
+  border-radius: 50%;
+  color: red;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+}
+.del-btn:hover{
+  background: red;
+  color: white;
+}
+.edit-btn{
+  font-size: 24px;
+  cursor: pointer;
+  color: green;
+  border-radius: 50%;
+  padding: 4px;
+  font-weight: 600;
+}
+.edit-btn:hover{
+  background: green;
+  color: white;
+}
 /* 
 button:disabled {
   background: #707070;

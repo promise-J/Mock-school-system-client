@@ -77,7 +77,7 @@ const Paystack = () => {
               />
             </div>
             <div>
-            <span>Phone</span>
+            <span>Quantity</span>
             <input
               type="number"
               id="phone"

@@ -88,13 +88,13 @@ const Teachers = () => {
                         <td>
                           <Link to={`/createUser/${s?._id}`}>
                             <button>
-                              <EditOutlined />
+                              <EditOutlined className='edit-btn' />
                             </button>
                           </Link>
                         </td>
                         <td>
                           <button onClick={() => deleteItem(s._id)}>
-                            <DeleteOutline />
+                            <DeleteOutline className="del-btn" />
                           </button>
                         </td>
                       </tr>
