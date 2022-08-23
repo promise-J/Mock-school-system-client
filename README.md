@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About the Resonance
+This is an educational website that mocks the complete adminstration of a schoool system in Nigeria. It's is a system that allows communication between students, teachers and the school management. It also lets the students check their result online with the aid of a scratch card assigned to them which doesnt last forever.
+
+you can access the admin with LOGIN ID: admin, PASSWORD: admin
+
 ## Available Scripts
 
 In the project directory, you can run:
