@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { dispatchLogout } from "../../redux/actions/authAction";
 import "./header.css";
-const REACT_APP_CLIENT_URL = process.env
+const {REACT_APP_CLIENT_URL} = process.env
 
 function Header() {
   const { isLogged } = useSelector((state) => state.auth);

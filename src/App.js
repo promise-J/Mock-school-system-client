@@ -55,7 +55,7 @@ import Notifications from "./components/notifications";
 function App() {
   const dispatch = useDispatch();
   const [fetching, setFetching] = useState(true);
-  const REACT_APP_CLIENT_URL = process.env;
+  const {REACT_APP_CLIENT_URL} = process.env;
   const PF = REACT_APP_CLIENT_URL;
 
   useEffect(() => {

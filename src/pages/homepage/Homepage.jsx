@@ -6,7 +6,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from 'react-router-dom'
 
 
-const REACT_APP_CLIENT_URL = process.env
+const {REACT_APP_CLIENT_URL} = process.env
 
 
 

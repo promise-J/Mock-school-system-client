@@ -23,7 +23,7 @@ const InputSpan = styled.span`
   transition: 1s all ease;
 `;
 
-const REACT_APP_CLIENT_URL = process.env
+const {REACT_APP_CLIENT_URL} = process.env
 
 function Login() {
   const history = useHistory();
