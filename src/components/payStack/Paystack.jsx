@@ -3,7 +3,8 @@ import "./paystack.css"
 import Img from  '../../images/payment.png'
 import PaystackPop from '@paystack/inline-js'
 import {useNotify} from '../../customHooks'
-import axios from "axios"
+import { axiosRequest } from "src/utils/axiosRequest"
+// import axios from "axios"
 const {REACT_APP_PAYSTACK_SECRET} = process.env
 
 
@@ -31,7 +32,7 @@ const Paystack = () => {
           email,
           onSuccess: async(transaction) =>{
                 try {
-                    const res = await axios.post(`/scratch?number=${cardNo}`)
+                    const res = await axiosRequest.post(`/scratch?number=${cardNo}`)
                     console.log(res.data)
                 } catch (error) {
                     notify('error', 'Something went Wrong')

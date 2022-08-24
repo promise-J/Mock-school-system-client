@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./resultCheck.css";
-import { Link, useLocation } from "react-router-dom";
-import axios from "axios";
+import { useHistory, useLocation } from "react-router-dom";
+// import axios from "axios";
 import Logo from "../../images/image.jpg";
+import { axiosRequest } from "src/utils/axiosRequest";
+import { dispatchLogout } from "src/redux/actions/authAction";
+import { useDispatch } from "react-redux";
 
 function ResultCheck() {
   const [result, setResult] = useState(null);
-  const [cardInfo, setCardInfo] = useState(null);
+  // const [cardInfo, setCardInfo] = useState(null);
   const location = useLocation();
-  const history = useLocation();
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const { resultId } = location.state;
     if (resultId) {
       const getResult = async () => {
-        const res = await axios.get(`/result/${resultId}`);
-
-        setResult(res.data.result);
-        setCardInfo(res.data.card);
+        try {
+          const res = await axiosRequest.get(`/result/${resultId}`);
+          console.log(res.data, 'the check data')
+          setResult(res.data.result);
+          // setCardInfo(res.data.card);
+        } catch (error) {
+          console.log(error.response.data, 'this is the error check')
+        }
       };
       getResult();
     } else {
@@ -24,13 +34,23 @@ function ResultCheck() {
     }
   }, [location, history]);
 
+  const handleLogout = async () => {
+    try {
+      await axiosRequest.get("/users/logout");
+      // localStorage.removeItem("firstLogin");
+      dispatch(dispatchLogout());
+      history.push("/");
+    } catch (error) {
+      dispatch(dispatchLogout());
+      history.push("/");
+    }
+  };
+
   return (
     result &&
-    cardInfo && (
+   (
       <div className="resultCheck-container">
-        <Link to="/">
-          <span>Go Back</span>
-        </Link>
+          <span onClick={handleLogout} style={{background: 'green', color: 'white', padding: '1px 10px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '30px', width: 'fit-content', borderRadius: 5, cursor: 'pointer', boxShadow: '2px 2px 2px 2px gray'}}>Go Back</span>
         <div className="resultCheck">
           <header>
             <div className="logo">
@@ -101,8 +121,8 @@ function ResultCheck() {
                 </div>
                 <div className="candidate-value">
                   <p>
-                    <span>{cardInfo.usageCount}</span> of
-                    <span>{cardInfo.maxUseCount}</span>
+                    {/* <span>{cardInfo.usageCount}</span> of
+                    <span>{cardInfo.maxUseCount}</span> */}
                   </p>
                 </div>
               </div>

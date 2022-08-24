@@ -1,10 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Loading from "../loading/Loading";
 import {useNotify} from '../../customHooks'
+import { axiosRequest } from "src/utils/axiosRequest";
 
 function CreateSubject() {
   const { subjectID } = useParams();
@@ -29,7 +30,7 @@ function CreateSubject() {
     if (subjectID && role === "superuser") {
       setLoading(true);
       const getSingleClass = async () => {
-        const res = await axios.get(`/subject/${subjectID}`);
+        const res = await axiosRequest.get(`/subject/${subjectID}`);
         setEditName(res.data.name);
         setLoading(false);
       };
@@ -42,7 +43,7 @@ function CreateSubject() {
       e.preventDefault();
       // setLoading(true)
       // const res =
-      await axios.post("/subject", { name: name.toUpperCase() });
+      await axiosRequest.post("/subject", { name: name.toUpperCase() });
       // setData({...data, success: res.data, error: ''})
       // setTimeout(()=>{
       //   setData({...data, success: "", error: ""})
@@ -64,7 +65,7 @@ function CreateSubject() {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/subject/${subjectID}`, {
+      await axiosRequest.put(`/subject/${subjectID}`, {
         name: editName.toUpperCase(),
       });
       // setData({ ...data, success: "Updated Success!" });

@@ -1,7 +1,8 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNotify } from "../../customHooks";
 import {useHistory} from 'react-router-dom'
+import { axiosRequest } from "src/utils/axiosRequest";
 
 function CreateResult() {
   const notify = useNotify();
@@ -17,7 +18,7 @@ function CreateResult() {
 
   useEffect(() => {
     const getStudents = async () => {
-      const { data } = await axios.get("/users/all/students");
+      const { data } = await axiosRequest.get("/users/all/students");
       const { students } = data;
       setStudents(students);
     };
@@ -26,7 +27,7 @@ function CreateResult() {
 
   useEffect(() => {
     const getSessions = async () => {
-      const res = await axios.get("/session/all/session");
+      const res = await axiosRequest.get("/session/all/session");
       setSessions(res.data.sessions);
     };
     getSessions();
@@ -40,7 +41,7 @@ function CreateResult() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/result`, {
+      await axiosRequest.post(`/result`, {
         term: currentTerm,
         studentId: student,
         session,

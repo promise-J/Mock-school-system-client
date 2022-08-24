@@ -3,11 +3,14 @@ import Header from "../../components/header/Header";
 import "./studentLogin.css";
 import { SearchOutlined } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { useDispatch } from "react-redux";
 import { dispatchLogin, dispatchUser } from "../../redux/actions/authAction";
+import { axiosRequest } from "src/utils/axiosRequest";
+import { useNotify } from "src/customHooks";
 
 function StudentLogin() {
+  const notify = useNotify()
   // const {isLogged} = useSelector(state=> state.auth)
   const history = useHistory();
   const dispatch = useDispatch();
@@ -22,11 +25,11 @@ function StudentLogin() {
 
   const [data, setData] = useState(initialState);
   const [allSessions, setAllSessions] = useState([]);
-  const { session, loginID, term, scard, error, success } = data;
+  const { session, loginID, term, scard } = data;
 
   useEffect(() => {
     const getSessions = async () => {
-      const res = await axios.get("/session/all/session");
+      const res = await axiosRequest.get("/session/all/session");
 
       setAllSessions(res.data.sessions);
     };
@@ -48,7 +51,7 @@ function StudentLogin() {
 
     const getResult = async () => {
       try {
-        const res = await axios.post(`/result/authenticate`, {
+        const res = await axiosRequest.post(`/result/authenticate`, {
           session,
           user: loginID,
           term,
@@ -58,13 +61,13 @@ function StudentLogin() {
 
         dispatch(dispatchLogin());
         dispatch(dispatchUser(user));
-        console.log(res.data);
         history.push({
           pathname: `/resultCheck`,
           state: res.data,
         });
+        notify('success', 'Redirecting! Please wait...')
       } catch (error) {
-        setData({ ...data, success: "", error: error.response.data });
+        notify('error', error?.response?.data)
       }
     };
     getResult();
@@ -84,8 +87,6 @@ function StudentLogin() {
           <h1>Student's Result Portal</h1>
           <p>Search Result here</p>
           <h3>What is Your Student Registration Number ?</h3>
-          {error && <div className="err-msg">{error}</div>}
-          {success && <div className="suc-msg">{success}</div>}
           <div className="studentLoginInputDiv">
             <input
               value={data.loginID}

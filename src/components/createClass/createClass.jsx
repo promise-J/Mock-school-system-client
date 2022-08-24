@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./createClass.css";
 // import { useParams } from 'react-router-dom'
-import axios from "axios";
+// import axios from "axios";
 import { useSelector } from "react-redux";
 import Loading from "../loading/Loading";
 import {useNotify} from '../../customHooks'
+import { axiosRequest } from "src/utils/axiosRequest";
 // import Alert from '../alert/Alert';
 /* eslint-disable */
 function CreateClass() {
@@ -28,7 +29,7 @@ function CreateClass() {
     const getAllSubjects = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/subject");
+        const res = await axiosRequest.get("/subject");
         setAllSubjects(res.data.subjects);
       } catch (error) {
         console.log(error);
@@ -64,7 +65,7 @@ function CreateClass() {
     e.preventDefault();
     try {
       //   const res =
-      await axios.post("/class", { subjects, name: name.toUpperCase(), code });
+      await axiosRequest.post("/class", { subjects, name: name.toUpperCase(), code });
       // setSuccess("Class Created");
       notify('success', 'Class Created')
       setSubjects([]);

@@ -1,12 +1,13 @@
-import axios from 'axios'
+// import axios from 'axios'
 import { useState } from 'react'
+import { axiosRequest } from 'src/utils/axiosRequest'
 import './footer.css'
 
 function Footer() {
     const [content, setContent] = useState('')
     const sendMail = async()=>{
         try {
-            await axios.post('/users/emailing', {content, senderEmail: 'UnknownUser@gmail.com'})
+            await axiosRequest.post('/users/emailing', {content, senderEmail: 'UnknownUser@gmail.com'})
             setContent('')
         } catch (error) {
             console.log(error)              

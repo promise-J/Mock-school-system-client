@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import ResultRow from "../resultRow/ResultRow";
-import { useSelector } from "react-redux";
 import Loading from "../loading/Loading";
+import { axiosRequest } from "src/utils/axiosRequest";
 
 function ViewSingleResult() {
   const { resultID } = useParams();
@@ -17,7 +17,7 @@ function ViewSingleResult() {
     if (resultID) {
       setLoading(true);
       const getResult = async () => {
-        const { data } = await axios.get(`/result/${resultID}`);
+        const { data } = await axiosRequest.get(`/result/${resultID}`);
         setResult(data.result);
         setLoading(false);
       };

@@ -1,8 +1,9 @@
 import { DeleteOutlined, EditOutlined } from "@material-ui/icons";
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { axiosRequest } from "src/utils/axiosRequest";
 import Loading from "../loading/Loading";
 import Pagination from "../pagination/Pagination";
 
@@ -18,7 +19,7 @@ function ViewSubject() {
   useEffect(() => {
     const getSubjects = async () => {
       setLoading(true);
-      const { data } = await axios.get(`/subject?page=${pageNumber}`);
+      const { data } = await axiosRequest.get(`/subject?page=${pageNumber}`);
       const { totalPages, subjects } = data;
       setSubjects(subjects);
       setNoOfPages(totalPages);
@@ -30,7 +31,7 @@ function ViewSubject() {
   const deleteItem = async (id) => {
     setSubjects(subjects.filter((s) => s.id !== id));
     try {
-      await axios.delete(`/subject/${id}`);
+      await axiosRequest.delete(`/subject/${id}`);
     } catch (error) {
       console.log(error);
     }

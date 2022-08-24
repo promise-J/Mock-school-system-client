@@ -1,9 +1,10 @@
 import { DeleteOutline } from "@material-ui/icons";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { axiosRequest } from "src/utils/axiosRequest";
 
 const MessageFeed = ({ message, messages, setMessages }) => {
   const { user } = useSelector((state) => state.auth);
@@ -13,7 +14,7 @@ const MessageFeed = ({ message, messages, setMessages }) => {
     if (message.sender.id !== user?.user.id)  return alert("You can not delete someone post");
     try {
       setLoading(true);
-      await axios.delete(`/message/${id}`);
+      await axiosRequest.delete(`/message/${id}`);
       setMessages(messages.filter(message=> message._id !==id))
       // setCb(!cb);
       setLoading(false);

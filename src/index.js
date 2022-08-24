@@ -7,13 +7,6 @@ import DataProvider, { store } from "./redux/store";
 import axios from "axios";
 import { dispatchLogout } from "./redux/actions/authAction";
 
-
-const {REACT_APP_BASE_URL} = process.env
-
-// "proxy": "http://localhost:5000"
-axios.defaults.baseURL = REACT_APP_BASE_URL;
-axios.defaults.withCredentials = true;
-
 axios.interceptors.response.use(
   function (response) {
     return response;

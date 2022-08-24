@@ -7,23 +7,30 @@ import BorderColorIcon from "@material-ui/icons/BorderColor";
 import Layout from "../../components/Layout/Layout";
 import { useSelector } from "react-redux";
 
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import { isPrincipal } from "../../utils/roleChecks";
+import { axiosRequest } from "src/utils/axiosRequest";
+import Cookie from 'universal-cookie';
 
 // eslint-disable-next-line
 function Dashboard() {
+  const cookies = new Cookie()
   const { user, role } = useSelector((state) => state.auth);
+  const TOKEN = cookies.get('loginID')
 
   const [stats, setStats] = useState(null);
   useEffect(() => {
     const getClasses = async () => {
-      const res = await axios.get("/stats/");
-      setStats(res.data.stats);
+      try {
+        const res = await axiosRequest.get("/stats/");
+        setStats(res.data.stats);
+      } catch (error) {
+      }
     };
-    getClasses();
-  }, []);
+      TOKEN && getClasses();
+  }, [TOKEN]);
+
 
   return (
     <>

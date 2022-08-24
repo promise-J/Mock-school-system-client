@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import "./auth.css";
 import { dispatchLogin, dispatchUser } from "../../redux/actions/authAction";
 import styled from "styled-components";
 import { Check, Clear } from "@material-ui/icons";
 import {useNotify} from '../../customHooks'
+import Cookie from 'universal-cookie'
+import { axiosRequest } from "src/utils/axiosRequest";
 
 const InputSpan = styled.span`
   font-size: 12px;
@@ -26,7 +28,8 @@ const InputSpan = styled.span`
 const {REACT_APP_CLIENT_URL} = process.env
 
 function Login() {
-  const history = useHistory();
+  const cookies = new Cookie()
+  const history = useHistory()
   const dispatch = useDispatch();
   const notify = useNotify()
   const PF = REACT_APP_CLIENT_URL
@@ -42,12 +45,12 @@ function Login() {
     const { value, name } = e.target;
     setData({ ...data, [name]: value });
   };
-
+  
   const adminLogin = async(e)=>{
     e.preventDefault()
     try {
-      const res = await axios.post('/users/login', {loginID: 'admin', password: 'superadmin'})   
-      console.log(res, 'from here')
+      const res = await axiosRequest.post('/users/login', {loginID: 'admin', password: 'superadmin'})   
+      cookies.set('loginID', res.data.token)
       dispatch(dispatchLogin());
       dispatch(dispatchUser(res.data.user));
       notify("success", "Login Successful");
@@ -61,7 +64,8 @@ function Login() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const res = await axios.post("/users/login", { loginID, password });
+      const res = await axiosRequest.post("/users/login", { loginID, password });
+      cookies.set('loginID', res.data.token)
       dispatch(dispatchLogin());
       dispatch(dispatchUser(res.data.user));
       notify('success', 'Login Successful')

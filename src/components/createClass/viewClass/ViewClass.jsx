@@ -1,9 +1,9 @@
 import { DeleteOutlined, EditOutlined } from "@material-ui/icons";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNotify } from "src/customHooks";
+import { axiosRequest } from "src/utils/axiosRequest";
 import Loading from "../../loading/Loading";
 import Pagination from "../../pagination/Pagination";
 
@@ -15,25 +15,25 @@ function ViewClass() {
   const { role } = useSelector((state) => state.auth);
   const pages = new Array(noOfPages).fill(null).map((s, i) => i);
   const { user } = useSelector((state) => state.auth);
-  const notify = useNotify()
+  const notify = useNotify();
 
   useEffect(() => {
     const getClasses = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("/class");
+        const { data } = await axiosRequest.get("/class");
 
         const { totalPages, classes } = data;
         setAllClasses(classes);
         setNoOfPages(totalPages);
         setLoading(false);
         // console.log(res.data)
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     getClasses();
   }, []);
+
+  // SMACADY8ef7fa6dbec8-card, reg - 2021100001, third, 23/24
 
   const prevPage = () => {
     setPageNumber(Math.max(0, pageNumber - 1));
@@ -46,8 +46,8 @@ function ViewClass() {
   const deleteItem = async (id) => {
     try {
       setAllClasses(allClasses.filter((c) => c._id !== id));
-      notify('success', 'Deleted Successfully')
-      await axios.delete(`/class/${id}`);
+      notify("success", "Deleted Successfully");
+      await axiosRequest.delete(`/class/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +91,7 @@ function ViewClass() {
                           to={`/editClass/${c._id}`}
                         >
                           <button>
-                            <EditOutlined className='edit-btn' />
+                            <EditOutlined className="edit-btn" />
                           </button>
                         </Link>
                       </td>
