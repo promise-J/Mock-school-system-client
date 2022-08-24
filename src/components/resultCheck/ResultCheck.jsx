@@ -55,7 +55,7 @@ function ResultCheck() {
           <header>
             <div className="logo">
               <img src={Logo} alt="" />
-              <h4>DE SOLUTION MODEL ACADEMY MGBAKWU</h4>
+              <h4>DE Resonance MODEL ACADEMY MGBAKWU</h4>
             </div>
             <div className="resulthead">
               <h1>STUDENT RESULT</h1>

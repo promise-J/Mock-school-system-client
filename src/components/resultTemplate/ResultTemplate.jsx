@@ -8,7 +8,7 @@ function ResultTemplate() {
       <header>
           <div className="heading1">
               <h2>ANAMBRA STATE SCHOOL SYSTEM</h2>
-              <h1>DE SOLUTION MODEL SECONDARY SCHOOL</h1>
+              <h1>DE Resonance MODEL SECONDARY SCHOOL</h1>
               <h5>(Government Approved)</h5>
               <h6><span>Motto:</span> Knowledge and Fear of God</h6>
             </div>

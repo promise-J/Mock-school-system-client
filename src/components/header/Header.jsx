@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { axiosRequest } from "src/utils/axiosRequest";
 import { dispatchLogout } from "../../redux/actions/authAction";
 import "./header.css";
-const {REACT_APP_CLIENT_URL} = process.env
+const { REACT_APP_CLIENT_URL } = process.env;
 
 function Header() {
   const { isLogged } = useSelector((state) => state.auth);
@@ -15,14 +15,14 @@ function Header() {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const PF = REACT_APP_CLIENT_URL
+  const PF = REACT_APP_CLIENT_URL;
 
   const handleMenu = () => {
     setToggle((state) => !state);
   };
 
-  const handleMenuLogout = async()=>{
-    setToggle((state)=> !state)
+  const handleMenuLogout = async () => {
+    setToggle((state) => !state);
     try {
       await axiosRequest.get("/users/logout");
       // localStorage.removeItem("firstLogin");
@@ -32,7 +32,7 @@ function Header() {
       dispatch(dispatchLogout());
       history.push("/");
     }
-  }
+  };
 
   const logout = async () => {
     try {
@@ -49,63 +49,70 @@ function Header() {
   return (
     <>
       <header className="header">
-      <div
+        <div
           className="menuPlane"
           style={{ transform: toggle ? "translateX(0%)" : "translateX(-120%)" }}
         >
           {/* <span onClick={handleMenu} className='closeMenu'>X</span> */}
-          {isLogged ?  <> <h2>Dashboard</h2>
-          <ul>
-            <Link onClick={handleMenu} to="/viewClass">
-              <li>Manage Classes</li>
-            </Link>
-            <Link onClick={handleMenu} to="/viewStudent">
-              <li>Manage Students</li>
-            </Link>
-            <Link onClick={handleMenu} to="/viewSubject">
-              <li>Manage Subjects</li>
-            </Link>
-            <Link onClick={handleMenu} to="/viewTeachers">
-              <li>Manage Teachers</li>
-            </Link>
-            <Link onClick={handleMenu} to="/viewResult">
-              <li>Manage Results</li>
-            </Link>
-            <Link onClick={handleMenu} to="/viewSession">
-              <li>Manage Sessions</li>
-            </Link>
-            <Link onClick={handleMenu} to="/adminPassword">
-              <li>App Admin Settings</li>
-            </Link>
-            <Link onClick={handleMenu} to="/staffMessage">
-              <li>Messages</li>
-            </Link>
-            <li style={{cursor: 'pointer'}} onClick={handleMenuLogout}>Logout</li>
-          </ul></> :
-          <>
-          <h2>Solution Academy</h2>
-          <ul>
-          <Link onClick={handleMenu} to="/">
-              <li>Home</li>
-            </Link>
-            <Link onClick={handleMenu} to="/clubs">
-              <li>Gallery</li>
-            </Link>
-            <Link onClick={handleMenu} to="/enquire">
-              <li>Contact</li>
-            </Link>
-            <Link onClick={handleMenu} to="/">
-              <li>News</li>
-            </Link>
-            <Link onClick={handleMenu} to="/">
-              <li>About</li>
-            </Link>
-            <Link onClick={handleMenu} to="/login">
-              <li>Portal</li>
-            </Link>
-          </ul>
-          </>
-          }
+          {isLogged ? (
+            <>
+              {" "}
+              <h2>Dashboard</h2>
+              <ul>
+                <Link onClick={handleMenu} to="/viewClass">
+                  <li>Manage Classes</li>
+                </Link>
+                <Link onClick={handleMenu} to="/viewStudent">
+                  <li>Manage Students</li>
+                </Link>
+                <Link onClick={handleMenu} to="/viewSubject">
+                  <li>Manage Subjects</li>
+                </Link>
+                <Link onClick={handleMenu} to="/viewTeachers">
+                  <li>Manage Teachers</li>
+                </Link>
+                <Link onClick={handleMenu} to="/viewResult">
+                  <li>Manage Results</li>
+                </Link>
+                <Link onClick={handleMenu} to="/viewSession">
+                  <li>Manage Sessions</li>
+                </Link>
+                <Link onClick={handleMenu} to="/adminPassword">
+                  <li>App Admin Settings</li>
+                </Link>
+                <Link onClick={handleMenu} to="/staffMessage">
+                  <li>Messages</li>
+                </Link>
+                <li style={{ cursor: "pointer" }} onClick={handleMenuLogout}>
+                  Logout
+                </li>
+              </ul>
+            </>
+          ) : (
+            <>
+              <h2>Resonance Academy</h2>
+              <ul>
+                <Link className="link" onClick={handleMenu} to="/">
+                  <li>Home</li>
+                </Link>
+                <Link onClick={handleMenu} to="/clubs">
+                  <li>Gallery</li>
+                </Link>
+                <Link onClick={handleMenu} to="/enquire">
+                  <li>Contact</li>
+                </Link>
+                <Link onClick={handleMenu} to="/">
+                  <li>News</li>
+                </Link>
+                <Link onClick={handleMenu} to="/">
+                  <li>About</li>
+                </Link>
+                <Link className="link" onClick={handleMenu} to="/login">
+                  <li>Portal</li>
+                </Link>
+              </ul>
+            </>
+          )}
         </div>
         {isLogged ? (
           <div className="header-link">
@@ -140,17 +147,17 @@ function Header() {
         )}
         <div className="logo">
           <img
-            src={PF + '/images/solu.jpg'}
+            src={PF + "/images/solu.jpg"}
             alt="logo"
-            style={{height: 32, width: 32}}
+            style={{ height: 32, width: 32 }}
           />
           {isLogged ? (
-            <button onClick={logout} className="portal-link">
+            <button onClick={logout} className="link">
               Logout
             </button>
           ) : (
             <Link
-              className="portal-link"
+              className="link"
               to={isLogged ? "/dashboard" : "/login"}
             >
               Portal

@@ -33,12 +33,12 @@ function Club() {
                   
               </div>
             </div>
-            <h4>Solution Voices</h4>
+            <h4>Resonance Voices</h4>
             <div className="m-h"></div>
             <div className="club-text">
-                <p><span className='first-text'>T</span>his is the club of the Solution Voices. It is the club of the Solution Voices.
-                     It is the club of the Solution Voices.
-                     It is the club of the Solution Voices. It is the club of the Solution Voices.</p>
+                <p><span className='first-text'>T</span>his is the club of the Resonance Voices. It is the club of the Resonance Voices.
+                     It is the club of the Resonance Voices.
+                     It is the club of the Resonance Voices. It is the club of the Resonance Voices.</p>
             </div>
             <div className="clubs-images">
               <div className="club-image">
@@ -96,12 +96,12 @@ function Club() {
                   
               </div>
             </div>
-            <h4>Solution Dancing Club</h4>
+            <h4>Resonance Dancing Club</h4>
             <div className="m-h"></div>
             <div className="club-text">
-                <p><span className='first-text'>T</span>his is the club of the Solution Dancing Club. It is the club of the Solution Dancing Club.
-                     It is the club of the Solution Dancing Club.
-                     It is the club of the Solution Dancing Club. It is the club of the Solution Dancing Club.</p>
+                <p><span className='first-text'>T</span>his is the club of the Resonance Dancing Club. It is the club of the Resonance Dancing Club.
+                     It is the club of the Resonance Dancing Club.
+                     It is the club of the Resonance Dancing Club. It is the club of the Resonance Dancing Club.</p>
             </div>
             <div className="clubs-images">
               <div className="club-image">

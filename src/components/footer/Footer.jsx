@@ -18,7 +18,7 @@ function Footer() {
         <footer>
             <div className="footer1">
                 <div className="footer1-div">
-                    <h1>SOLUTION ACADEMY SCHOOL.</h1>
+                    <h1>Resonance ACADEMY SCHOOL.</h1>
                     <p>EQUIPPING LEADERS THE LEADERS OF TOMMORROW...</p>
                 </div>
                 <div className="footer1-div">

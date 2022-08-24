@@ -86,7 +86,7 @@ function Login() {
       <Header />
       <div className="login-body">
         <div className="logo-sec">
-          <h2>DE Solution Academy</h2>
+          <h2>DE Resonance Academy</h2>
           <img
             className="login-img"
             src={PF + '/images/solu.jpg'}

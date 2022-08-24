@@ -28,7 +28,9 @@ function Dashboard() {
       } catch (error) {
       }
     };
+    setTimeout(()=>{
       TOKEN && getClasses();
+    },2000)
   }, [TOKEN]);
 
 

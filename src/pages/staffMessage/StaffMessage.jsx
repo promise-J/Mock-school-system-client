@@ -60,7 +60,7 @@ const StaffMessage = () => {
                 </div>
             </div>
             <div className="staffMessageBody">
-            <p className='staffWelcomeHead'>Welcome to solution family</p>
+            <p className='staffWelcomeHead'>Welcome to Resonance family</p>
             {
                 loading ? <CircularProgress style={{margin: '40px 50px', fontSize: 50}} /> :
             <div ref={parentRef} className="staffMessageContainer">
