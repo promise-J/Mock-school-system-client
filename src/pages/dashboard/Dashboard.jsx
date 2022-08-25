@@ -29,7 +29,6 @@ function Dashboard() {
       }
     };
     setTimeout(()=>{
-      console.log(TOKEN, 'THE TOKEN FIRST')
       TOKEN && getClasses();
     },2000)
   }, [TOKEN]);
