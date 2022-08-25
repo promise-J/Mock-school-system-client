@@ -9,6 +9,7 @@ import ACTIONS from "../actions";
  */
 const initialState = {
   notifications: [],
+  token: null
 };
 
 const tokenReducer = (state = initialState, actions) => {
@@ -37,6 +38,11 @@ const tokenReducer = (state = initialState, actions) => {
           (notification) => notification.id !== actions.payload.id
         ),
       };
+      case ACTIONS.TOKEN_ADD:
+        return {
+          ...state,
+          token: actions.payload.token
+        }
     default:
       return state;
   }

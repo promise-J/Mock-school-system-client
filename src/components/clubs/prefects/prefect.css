@@ -1,6 +1,6 @@
 .prefects{
     height: fit-content;
-    padding: 0px 30px 30px 30px;
+    /* padding: 0px 30px 30px 30px; */
 }
 
 .prefects .prefects-text{
@@ -9,7 +9,7 @@
     margin: 5px auto;
     /* padding: 0 10px; */
     font-size: 20px;
-    color: rgb(226, 73, 99);
+    color: rgb(174, 101, 243);
     line-height: 2;
     letter-spacing: 3px;
 }
@@ -31,7 +31,7 @@
     height: 60px;
     text-align: center;
     font-size: 20px;
-    color: rgb(226, 73, 99);
+    color: rgb(174, 101, 243);
     padding: 3px 0;
     transition: all ease-in-out 1s;
 }
@@ -44,13 +44,13 @@
 .prefects .prefect-image{
     height: 400px;
     width: 230px;
-    border: 1px solid red;
+    border: 1px solid rgb(174, 101, 243);
     margin: 10px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: -3px -2px 2px 0px rgba(0,0,0,0.6), 2px 3px 6px 0px rgba(0,0,0,0.6),
-    3px 3px 4px 3px rgb(247, 169, 169), 4px 2px 4px 0px rgb(247, 169, 169);
+    3px 3px 4px 3px rgb(174, 101, 243), 4px 2px 4px 0px rgb(174, 101, 243);
     transition: all ease-in-out 1s;
 }
 

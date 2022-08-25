@@ -73,7 +73,8 @@ function App() {
       offset: 10,
       delay: 50,
       easing: "ease-in-sine",
-      disable: "mobile",
+      // disable: "mobile",
+      once: true
     });
   }, []);
 

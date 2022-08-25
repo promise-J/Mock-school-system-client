@@ -1,6 +1,6 @@
 .welcome-page{
     height: fit-content;
-    padding: 0px 30px;
+    /* padding: 0px 30px; */
     display: flex;
     flex-direction: column;
     /* background-color: blue; */
@@ -22,7 +22,7 @@
     margin: 50px auto;
     /* padding: 0 10px; */
     font-size: 20px;
-    color: rgb(226, 73, 99);
+    color: rgb(163, 86, 235);
     line-height: 2;
     letter-spacing: 3px;
 }

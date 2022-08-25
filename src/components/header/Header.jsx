@@ -152,7 +152,7 @@ function Header() {
             style={{ height: 32, width: 32 }}
           />
           {isLogged ? (
-            <button onClick={logout} className="link">
+            <button onClick={logout} className="link" style={{background: 'inherit'}}>
               Logout
             </button>
           ) : (
@@ -163,13 +163,13 @@ function Header() {
               Portal
             </Link>
           )}
-        </div>
         <div className="headerMenu">
           {!toggle ? (
             <MenuOpen onClick={handleMenu} />
           ) : (
             <Close onClick={handleMenu} />
           )}
+        </div>
         </div>
       </header>
       <div className="divide-header"></div>

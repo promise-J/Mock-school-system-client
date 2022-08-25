@@ -1,9 +1,12 @@
 import React from 'react'
+import Footer from 'src/components/footer/Footer'
+import Header from 'src/components/header/Header'
 import './prefect.css'
 
 function Prefect() {
     return (
         <div className='prefects'>
+            <Header />
             <div className="welcome">
                 <h1 className="welcome-home">OUR PREFECTS</h1>
                 <div className="s-h"></div>
@@ -85,6 +88,7 @@ function Prefect() {
                   </div>
               </div> */}
             </div>
+            <Footer />
         </div>
     )
 }

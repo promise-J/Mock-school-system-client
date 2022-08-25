@@ -12,6 +12,15 @@ export const dispatchNotify = (status, message) => {
   };
 };
 
+export const dispatchToken = (state, token)=>{
+  return {
+    type: ACTIONS.TOKEN_ADD,
+    payload: {
+      token
+    }
+  }
+}
+
 export const dispatchUnNotify = (notificationId) => {
   return {
     type: ACTIONS.UNNOTIFY,

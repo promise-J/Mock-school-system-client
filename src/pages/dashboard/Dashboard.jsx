@@ -23,12 +23,13 @@ function Dashboard() {
   useEffect(() => {
     const getClasses = async () => {
       try {
-        const res = await axiosRequest.get("/stats/");
+        const res = await axiosRequest.get("/stats/", {headers: {Authorization: TOKEN}});
         setStats(res.data.stats);
       } catch (error) {
       }
     };
     setTimeout(()=>{
+      console.log(TOKEN, 'THE TOKEN FIRST')
       TOKEN && getClasses();
     },2000)
   }, [TOKEN]);
